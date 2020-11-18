@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Main styles sheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Quarantine Match</title>
+    <meta name="keywords" content="Quarantine, love match, entertaining">
+    <meta name="description" content="Help people to find person of interest based on names and some funny facts!">
+  </head>
+  <body >
+    <main>
+      <div  class="center-align">
+        <!-- Page Content goes here -->
+        <h1>Quarantine Match</h1>
+        
+        <div class="signs">
+          <!-- Giphy image will go here -->
+          <div class="gif scale-transition scale-out">
+            <img id="giphy" src="" alt="Funny giphy image">
+          </div>
+          
+          <!-- Signs images - decoration -->
+          <img src="assets/img/female.png" alt="Female Sign" class="female">
+          <img src="assets/img/male.png" alt="Male Sign" class="male">
+        </div>
+        <div class="row">
+          <!-- Form to input names and DOB -->
+          <form id="form" class="col s12">
+            <div class="info scale-transition scale-out">
+              <div id="showMatchInfo">Match Info here</div>
+              <div class="percentage"><span id="showPercentage" class="pulse"></span>% match</div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4 m2 push-s2 push-m4">
+                <input id="name1" type="text" class="validate" required>
+                <label for="name1">Enter Name 1</label>
+                <span class="helper-text" data-error="Name required"></span>
+              </div>
+              <div class="input-field col s4 m2 push-s2 push-m4">
+                <input id="name2" type="text" class="validate" required>
+                <label for="name2">Enter Name 2</label>
+                <span class="helper-text" data-error="Name required"></span>
+              </div>
+            </div>
+            <div class="dates">
+              <div class="row">
+                <div class="input-field col s4 m2 push-s2 push-m4">
+                  <input id="dob1" type="text" class="validate datepicker" required>
+                  <label for="dob1">Date of Birth 1</label>
+                  <span class="helper-text" data-error="Date required"></span>
+                </div>
+              
+                <div class="input-field col s4 m2 push-s2 push-m4">
+                  <input id="dob2" type="text" class="validate datepicker" required>
+                  <label for="dob2">Date of Birth 2</label>
+                  <span class="helper-text" data-error="Date required"></span>
+                </div>
+                <img src="assets/img/hearts.png" alt="hearts image" class="hearts">
+            </div>
+            <!-- Find button -->
+            <a id="find-btn" class="btn-floating btn-large waves-effect waves-light red pulse">Find</a>
+          </form>
+        </div>
+        <div class="info-text container">
+          <div class="row">
+            <div class="col s12">
+              <div id="info-text" class="card-panel cyan scale-transition scale-out">
+                <span class="white-text">We have created a fun application, Quarantine Match to boost 
+                  morale while maintaining social distancing in the current time of uncertainty 
+                  and downcast moods. It allows you to check compatibility with 
+                  people you have recently met based on name and date of birth. In a time where 
+                  corona cases are spiking, we are promoting social distancing. Quarantine Match 
+                  is a fun application and not meant to provide viable data, but meant to be more
+                   of an ice breaker between two strangers and give them entertaining topics
+                    to build on and spark conversations. Enter Name and Date of Birth for person 1 
+                  and 2. Click on FIND button or hit ENTER key 
+                  to start search.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Trigger -->
+      <button id="historyBtn" data-target="modal1" class="btn modal-trigger cyan">Best couples</button>
+      
+      <div class="row info-cards">
+        <!-- Card to display number facts for person 1 -->
+        <div class="col s12 m6">
+          <div class="card fact-card red lighten-5 scale-transition scale-out">
+            <div class="card-content">
+              <span id="person1-title" class="card-title"></span>
+              <ul id="p1-facts" class="facts left-align"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card to display number facts for person 2 -->
+        <div class="col s12 m6">
+          <div class="card fact-card red lighten-5 scale-transition scale-out">
+            <div class="card-content">
+              <span id="person2-title" class="card-title"></span>
+              <ul id="p2-facts" class="facts left-align"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display Local Storage Area -->
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal  center-align">
+        <div class="modal-content">
+          <h4>Here's the best matched couples</h4>
+          <ul id="match-list" class="collection left-align"></ul>
+        </div>
+        <div class="modal-footer">
+          <a href="" class="modal-close btn waves-effect waves-light blue">OK</a>
+          <a href="" id="clear-history" class="modal-close btn waves-effect waves-light red">Clear History</a>
+        </div>
+      </div>
+ 
+    </main>
+
+    <!-- JavaScript for jQuery and materialized -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Main JS file -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
