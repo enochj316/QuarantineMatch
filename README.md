@@ -19,7 +19,7 @@ HTTP requests are implemented with use of AJAX, JSON to get data from third-part
 
   
 
-Web Application can be accessed at [https://elogonme.github.io/quarantine-match/](https://elogonme.github.io/quarantine-match/)
+Web Application can be accessed at [https://enochj316.github.io/QuarantineMatch/](https://enochj316.github.io/QuarantineMatch/)
 
   
 
@@ -37,7 +37,7 @@ History of searched couples will be saved and can be viewed by clicking on BEST 
 
   
 
-All web app `code` is available at repository [https://github.com/elogonme/quarantine-match](https://enochj316.github.io/QuarantineMatch/)
+All web app `code` is available at repository [https://github.com/enochj316/QuarantineMatch](https://github.com/enochj316/QuarantineMatch/)
 
   
 
